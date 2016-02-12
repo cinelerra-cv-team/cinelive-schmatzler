@@ -138,7 +138,8 @@ SEQ_SLACKWARE="tagfile:a,ap,d,e,f,k,kde,kdei,l,n,t,tcl,x,xap,xfce,y pkglist:slac
 
 # Stripped-down Slackware with XFCE as the Desktop Environment:
 # - each series will become a squashfs module:
-SEQ_XFCEBASE="min,xbase,xapbase,xfcebase"
+## schmatzler: Added cinelerra custom repo
+SEQ_XFCEBASE="min,xbase,xapbase,xfcebase,cinelerra"
 
 # Stripped-down Slackware with KDE4 as the Desktop Environment:
 # - each series will become a squashfs module:

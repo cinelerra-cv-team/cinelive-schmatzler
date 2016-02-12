@@ -1,0 +1,18 @@
+#ffmpeg from AlienBOB - http://www.slackware.com/~alien/slackbuilds/ffmpeg/
+ffmpeg
+
+#cinelerra-cv - TODO: get opencv-legacy to build; add repo on website
+cinelerra
+faac
+faad2
+imlib2
+libmp4v2
+mjpegtools
+x264
+
+#tragtor - http://mein-neues-blog.de/tragtor-gui-for-ffmpeg/
+tragtor
+
+#user wishlist
+#ffDiaporama -> http://ffdiaporama.tuxfamily.org/
+#vapoursynth -> http://www.vapoursynth.com/ + QTGMC
