@@ -63,11 +63,11 @@ ROOTPW=${ROOTPW:-"root"}
 LIVEPW=${LIVEPW:-"live"}
 
 # Custom name for the host:
-LIVE_HOSTNAME=${LIVE_HOSTNAME:-"darkstar"}
+LIVE_HOSTNAME=${LIVE_HOSTNAME:-"cin-cv"}
 
 # What type of Live image?
 # Choices are: SLACKWARE, XFCE, KDE4, PLASMA5, MATE, CINNAMON
-LIVEDE=${LIVEDE:-"SLACKWARE"}
+LIVEDE=${LIVEDE:-"XFCE"}
 
 # What runlevel to use if adding a DE like: XFCE, KDE4, PLASMA5 etc...
 RUNLEVEL=${RUNLEVEL:-4}
@@ -96,16 +96,16 @@ WAIT=${WAIT:-"5"}
 THEDATE=$(date +%Y%m%d)
 
 # Who built the live image:
-BUILDER=${BUILDER:-"Alien BOB"}
+BUILDER=${BUILDER:-"Danny Schmarsel"}
 
 # The ISO main directory:
 LIVEMAIN=${LIVEMAIN:-"liveslak"}
 
 # Marker used for finding the Slackware Live files:
-MARKER=${MARKER:-"SLACKWARELIVE"}
+MARKER=${MARKER:-"CINCVLIVE"}
 
 # The filesystem label we will be giving our ISO:
-MEDIALABEL=${MEDIALABEL:-"LIVESLAK"}
+MEDIALABEL=${MEDIALABEL:-"LIVECINCV"}
 
 # The name of the directory used for storing persistence data:
 PERSISTENCE=${PERSISTENCE:-"persistence"}
