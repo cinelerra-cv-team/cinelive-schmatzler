@@ -1,6 +1,6 @@
 #These are the additional packages that are not present in Slackware itself.
 #Slackware's own packages have to be rsync'ed to $HOME/Desktop/slackmirror:
-#rsync -aPSH --delete --exclude "*-iso/" rsync://mirrors.kernel.org/slackware/slackware64-current .
+#rsync -aPSH --delete --exclude "*-iso/" --exclude "source" rsync://mirrors.kernel.org/slackware/slackware64-current .
 
 #ffmpeg from AlienBOB - http://www.slackware.com/~alien/slackbuilds/ffmpeg/
 ffmpeg
