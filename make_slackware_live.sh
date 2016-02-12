@@ -126,7 +126,7 @@ fi
 # Root directory of a Slackware local mirror tree;
 # You can define custom repository location (must be in local filesystem)
 # for any module in the file ./pkglists/<module>.conf:
-SL_REPO=${SL_REPO:-"/mnt/auto/sox/ftp/pub/Linux/Slackware"}
+SL_REPO=${SL_REPO:-"$HOME/Desktop/slackmirror"}
 
 # Package root directory:
 SL_PKGROOT=${SL_REPO}/slackware${DIRSUFFIX}-${SL_VERSION}/slackware${DIRSUFFIX}
