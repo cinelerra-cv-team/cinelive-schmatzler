@@ -23,6 +23,10 @@ x264
 #tragtor - http://mein-neues-blog.de/tragtor-gui-for-ffmpeg/
 tragtor
 
+#This enables dynamic resolution and clipboard functionality in VirtualBox
+virtualbox-addons
+virtualbox-kernel-addons
+
 #user wishlist
 #ffDiaporama -> http://ffdiaporama.tuxfamily.org/
 #vapoursynth -> http://www.vapoursynth.com/ + QTGMC
