@@ -20,6 +20,9 @@ mjpegtools
 opencv-legacy
 x264
 
+#cinelerra-cve
+cinelerra-einar
+
 #tragtor - http://mein-neues-blog.de/tragtor-gui-for-ffmpeg/
 tragtor
 
