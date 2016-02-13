@@ -5,14 +5,19 @@
 #ffmpeg from AlienBOB - http://www.slackware.com/~alien/slackbuilds/ffmpeg/
 ffmpeg
 
-#cinelerra-cv - TODO: get opencv-legacy to build; add repo on website
+#cinelerra-cv - TODO: add repo on website
 cinelerra
 faac
 faad2
 imlib2
 lame
+libavc1394
+libdv
+libiec61883
 libmp4v2
+libquicktime
 mjpegtools
+opencv-legacy
 x264
 
 #tragtor - http://mein-neues-blog.de/tragtor-gui-for-ffmpeg/
