@@ -1,0 +1,82 @@
+#!/bin/sh
+ 
+# Slackware build script for tragtor
+ 
+PRGNAM=tragtor
+VERSION="$( date +%Y%m%d )"
+BUILD=${BUILD:-1}
+TAG=${TAG:-_cin}
+ 
+if [ -z "$ARCH" ]; then
+  case "$( uname -m )" in
+    i?86) ARCH=i486 ;;
+    arm*) ARCH=arm ;;
+       *) ARCH=$( uname -m ) ;;
+  esac
+fi
+ 
+CWD=$(pwd)
+TMP=${TMP:-/tmp/sbs}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+ 
+set -eu
+ 
+rm -rf $PKG
+mkdir -p $TMP $PKG $OUTPUT
+cd $TMP
+rm -rf $PRGNAM
+mkdir $PRGNAM
+cd $PRGNAM
+wget -P $CWD/ http://repository.mein-neues-blog.de:9000/latest/tragtor.tar.gz
+tar xvfz $CWD/$PRGNAM.tar.gz
+chown -R root:root .
+find . \
+ \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+ -exec chmod 755 {} \; -o \
+ \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+ -exec chmod 644 {} \;
+ 
+cp -a usr/ $PKG
+ 
+find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+ 
+VERSION=${VERSION:-$(sed q $TMP/$PRGNAM/usr/share/$PRGNAM/version)}
+ 
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a $PKG/usr/share/doc/$PRGNAM/* $PKG/usr/doc/$PRGNAM-$VERSION
+rm -rf $PKG/usr/share/doc
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+ 
+mkdir -p $PKG/install
+ 
+(
+cat  << 'EOF'
+       |---------------------------------------------------------------|
+tragtor: traGtor (GUI for FFmpeg)
+tragtor:
+tragtor: Tragtor is a graphical user interface for the awesome
+tragtor: conversion tool ffmpeg for the use with Linux-OS. It is
+tragtor: written in Python and uses the GTK-Engine for displaying
+tragtor: it’s interface.
+tragtor:
+tragtor: http://mein-neues-blog.de/tragtor-gui-for-ffmpeg/
+tragtor:
+tragtor:
+tragtor:
+EOF
+) > $PKG/install/slack-desc
+ 
+(
+cat  << 'EOF'
+if [ -x /usr/bin/update-desktop-database ]; then
+  /usr/bin/update-desktop-database -q usr/share/applications
+fi
+ 
+ 
+EOF
+) > $PKG/install/doinst.sh
+ 
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}

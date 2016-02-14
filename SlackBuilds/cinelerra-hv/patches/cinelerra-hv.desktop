@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Cinelerra-HV 4.6.1
+Comment=Video Editor
+Categories=Application;AudioVideo;Multimedia;VideoEditing;
+Exec=/opt/cinelerra-hv/usr/bin/cinelerra
+Terminal=false
+Type=Application
+Icon=cinelerra-cv.xpm
