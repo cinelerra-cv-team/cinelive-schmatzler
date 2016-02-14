@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Cinelerra-5.0 (goodguy)
+Comment=Video Editor
+Categories=Application;AudioVideo;Multimedia;VideoEditing;
+Exec=/opt/cinelerra-goodguy/usr/bin/cinelerra
+Terminal=false
+Type=Application
+Icon=cinelerra-cv.xpm

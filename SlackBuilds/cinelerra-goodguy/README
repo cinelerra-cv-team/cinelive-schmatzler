@@ -1,0 +1,6 @@
+Cinelerra is the most advanced non-linear video editor and compositor
+for Linux. It does primarily 3 main things: capturing, compositing,
+and editing audio and video with sample level accuracy.
+
+This is goodguy's own variant of Cinelerra (5.x) which
+started on cinelerra.org.
