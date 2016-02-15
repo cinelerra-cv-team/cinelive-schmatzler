@@ -50,6 +50,11 @@ virtualbox-kernel-addons
 yad
 ffmultiplex
 
+#we need a userfriendly editor
+gtksourceview
+pygtksourceview
+gedit
+
 #user wishlist
 #ffDiaporama -> http://ffdiaporama.tuxfamily.org/
 #vapoursynth -> http://www.vapoursynth.com/ + QTGMC
