@@ -1,0 +1,30 @@
+From 0fe91ab2df6c363f9181d92e7d67c05c6879d110 Mon Sep 17 00:00:00 2001
+From: =?utf8?q?Einar=20R=C3=BCnkaru?= <einarrunkaru@gmail.com>
+Date: Tue, 30 Jun 2015 18:57:14 +0300
+Subject: [PATCH] Removed 'inline' from idct_sse2_xvid.c and
+ toolame-02l/Makefile.am
+
+Seems that rules of inlining have changed in gcc 5 and the current
+solution does not compile any more. 'Inline' was a hint anyway.
+Drop 'inline' and trust gcc to find the best solution.
+---
+ quicktime/ffmpeg/libavcodec/i386/idct_sse2_xvid.c | 2 +-
+ toolame-02l/Makefile.am                           | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/toolame-02l/Makefile.am b/toolame-02l/Makefile.am
+index f54c9b2..fa52784 100644
+--- a/toolame-02l/Makefile.am
++++ b/toolame-02l/Makefile.am
+@@ -57,7 +57,7 @@ EXTRA_DIST = FUTURE HISTORY LGPL.txt pds_subband.c
+ 
+ AM_CFLAGS = $(LARGEFILE_CFLAGS) \
+ 	-fomit-frame-pointer \
+-	-DNDEBUG -DINLINE=inline -DNEWENCODE -DNEWATAN
++	-DNDEBUG -DINLINE= -DNEWENCODE -DNEWATAN
+ 
+ libtoolame_la_LDFLAGS =  -lm
+ 
+-- 
+2.1.4
+

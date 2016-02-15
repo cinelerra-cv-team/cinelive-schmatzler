@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Cinelerra-CVA (akirad)
+Name[ja]=Cinelerra-CVA (akirad)
+Name[sl]=Cinelerra-CVA (akirad)
+Name[fr]=Cinelerra-CVA (akirad)
+Name[es]=Cinelerra-CVA (akirad)
+Comment=Video Editor Akirad Edition
+Categories=Application;AudioVideo;Multimedia;VideoEditing;
+Encoding=UTF-8
+Exec=/opt/cinelerra-akirad/bin/cinelerracvabin
+Icon=cinelerra-cv.xpm
+Terminal=false
+Type=Application
