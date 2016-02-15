@@ -117,7 +117,7 @@ mkdir -p $PKG/usr/share/pixmaps
 cp $PKG/opt/cinelerra-einar/share/pixmaps/cinelerra-cve.xpm $PKG/usr/share/pixmaps/cinelerra-cve.xpm
 
 #Edit starter to set branch creator and executable
-sed -i '2 s/Cinelerra-CVE/Cinelerra-CV (Einar)/' $PKG/usr/share/applications/cinelerra-cve.desktop
+sed -i '2 s/Cinelerra-CVE/Cinelerra-CVE (Einar)/' $PKG/usr/share/applications/cinelerra-cve.desktop
 sed -i '6 s/cinelerracve/\/opt\/cinelerra-einar\/bin\/cinelerracve/' $PKG/usr/share/applications/cinelerra-cve.desktop
 
 cd $PKG
