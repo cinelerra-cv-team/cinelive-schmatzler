@@ -46,6 +46,10 @@ ladspa-swh-plugins
 virtualbox-addons
 virtualbox-kernel-addons
 
+#ffmultiplex
+yad
+ffmultiplex
+
 #user wishlist
 #ffDiaporama -> http://ffdiaporama.tuxfamily.org/
 #vapoursynth -> http://www.vapoursynth.com/ + QTGMC

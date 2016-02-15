@@ -1,0 +1,67 @@
+#!/bin/sh
+ 
+# Slackware build script for ffmultiplex
+ 
+PRGNAM=ffmultiplex
+VERSION=${VERSION:-0.2}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_cin}
+ 
+if [ -z "$ARCH" ]; then
+  case "$( uname -m )" in
+    i?86) ARCH=i486 ;;
+    arm*) ARCH=arm ;;
+       *) ARCH=$( uname -m ) ;;
+  esac
+fi
+ 
+CWD=$(pwd)
+TMP=${TMP:-/tmp/sbs}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+ 
+set -eu
+ 
+rm -rf $PKG
+mkdir -p $PKG $OUTPUT
+cd $PKG
+tar xvfz $CWD/$PRGNAM-$VERSION.tar.gz
+chown -R root:root .
+find . \
+ \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+ -exec chmod 755 {} \; -o \
+ \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+ -exec chmod 644 {} \;
+ 
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+rm -rf $PKG/usr/share/doc
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+ 
+mkdir -p $PKG/install
+ 
+(
+cat  << 'EOF'
+       |---------------------------------------------------------------|
+ffmultiplex: ffmultiplex (Audio Video Muxer Tool)
+ffmultiplex:
+ffmultiplex: FF-Multiplex will take your Video and Audio files
+ffmultiplex: and multiplex them into a final container format.
+ffmultiplex:
+ffmultiplex: Adapted by Glen MacArthur for AVLinux
+ffmultiplex:
+ffmultiplex:
+EOF
+) > $PKG/install/slack-desc
+ 
+(
+cat  << 'EOF'
+if [ -x /usr/bin/update-desktop-database ]; then
+  /usr/bin/update-desktop-database -q usr/share/applications
+fi
+ 
+ 
+EOF
+) > $PKG/install/doinst.sh
+ 
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
