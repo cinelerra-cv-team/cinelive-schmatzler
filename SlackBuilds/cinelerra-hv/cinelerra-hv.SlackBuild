@@ -24,7 +24,7 @@
 
 PRGNAM=cinelerra-hv
 VERSION=${VERSION:-4.6.1}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_cin}
 
 if [ -z "$ARCH" ]; then
@@ -70,12 +70,14 @@ sed -i 's/ltermcap/lncurses/g' ./thirdparty/speech_tools/{configure{,.in},config
 # fixes to make it compile
 patch -Np1 -i "$CWD/patches/quicktime.patch"
 patch -Np1 -i "$CWD/patches/texi2html.patch"
-#patch -Np1 -i "$CWD/patches/gpac.patch"
 patch -Np1 -i "$CWD/patches/libavcodec.patch"
 patch -Np1 -i "$CWD/patches/cinelerra_4.6.patch"
   
 # fix problems with Cinelerra_plugins in read-only directories
 patch -Np1 -i "$CWD/patches/plugin_dir.patch"
+
+# Use the same fontsizes we have in Cinelerra-CV
+patch -Np1 -i "$CWD/patches/fix-fontsize.patch"
 
 # fix building with gcc 5.2 (thanks Opendigitalradio!)
 patch -Np1 -i "$CWD/patches/cinelerra-putbits-gcc52.patch"
@@ -93,9 +95,9 @@ sed -i 's/LDFLAGS = -Wl,-O1,--sort-common,--as-needed,-z,relro/LDFLAGS = -Wl,-O1
 make -j4
 
 # makes repackaging work
-[ ! -e "bin/cinelerra" ] && \
-	make -C cinelerra && \
-	make -C plugins
+#[ ! -e "bin/cinelerra" ] && \
+#	make -C cinelerra && \
+#	make -C plugins
 
 make install
 
