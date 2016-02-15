@@ -29,6 +29,9 @@ cinelerra-hv
 #Cinelerra 5.x
 cinelerra-goodguy
 
+#Cinelerra 4.1+CV merge from Johannes
+cinelerra-j6t
+
 #tragtor - http://mein-neues-blog.de/tragtor-gui-for-ffmpeg/
 tragtor
 
