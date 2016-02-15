@@ -38,6 +38,10 @@ cinelerra-akirad
 #tragtor - http://mein-neues-blog.de/tragtor-gui-for-ffmpeg/
 tragtor
 
+#ladspa
+ladspa_sdk
+ladspa-swh-plugins
+
 #This enables dynamic resolution and clipboard functionality in VirtualBox
 virtualbox-addons
 virtualbox-kernel-addons
