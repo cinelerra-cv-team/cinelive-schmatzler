@@ -25,7 +25,7 @@
 
 # http://plugin.org.uk/
 
-PACKAGER_ID=-_cin
+PACKAGER_ID=_cin
 PACKAGER=${PACKAGER:-$USER@$HOSTNAME}
 
 # Set YES for native build with gcc >= 4.2
