@@ -63,11 +63,11 @@ ROOTPW=${ROOTPW:-"root"}
 LIVEPW=${LIVEPW:-"live"}
 
 # Custom name for the host:
-LIVE_HOSTNAME=${LIVE_HOSTNAME:-"cin-cv"}
+LIVE_HOSTNAME=${LIVE_HOSTNAME:-"darkstar"}
 
 # What type of Live image?
 # Choices are: SLACKWARE, XFCE, KDE4, PLASMA5, MATE, CINNAMON
-LIVEDE=${LIVEDE:-"XFCE"}
+LIVEDE=${LIVEDE:-"SLACKWARE"}
 
 # What runlevel to use if adding a DE like: XFCE, KDE4, PLASMA5 etc...
 RUNLEVEL=${RUNLEVEL:-4}
@@ -96,16 +96,16 @@ WAIT=${WAIT:-"5"}
 THEDATE=$(date +%Y%m%d)
 
 # Who built the live image:
-BUILDER=${BUILDER:-"Danny Schmarsel"}
+BUILDER=${BUILDER:-"Alien BOB"}
 
 # The ISO main directory:
 LIVEMAIN=${LIVEMAIN:-"liveslak"}
 
 # Marker used for finding the Slackware Live files:
-MARKER=${MARKER:-"CINCVLIVE"}
+MARKER=${MARKER:-"SLACKWARELIVE"}
 
 # The filesystem label we will be giving our ISO:
-MEDIALABEL=${MEDIALABEL:-"LIVECINCV"}
+MEDIALABEL=${MEDIALABEL:-"LIVESLAK"}
 
 # The name of the directory used for storing persistence data:
 PERSISTENCE=${PERSISTENCE:-"persistence"}
@@ -126,7 +126,7 @@ fi
 # Root directory of a Slackware local mirror tree;
 # You can define custom repository location (must be in local filesystem)
 # for any module in the file ./pkglists/<module>.conf:
-SL_REPO=${SL_REPO:-"/home/schmatzler/Desktop/slackmirror"}
+SL_REPO=${SL_REPO:-"/mnt/auto/sox/ftp/pub/Linux/Slackware"}
 DEF_SL_REPO=${SL_REPO}
 
 # Package root directory:
@@ -141,8 +141,7 @@ SEQ_SLACKWARE="tagfile:a,ap,d,e,f,k,kde,kdei,l,n,t,tcl,x,xap,xfce,y pkglist:slac
 
 # Stripped-down Slackware with XFCE as the Desktop Environment:
 # - each series will become a squashfs module:
-## schmatzler: Added cinelerra custom repo
-SEQ_XFCEBASE="min,xbase,xapbase,xfcebase,cinelerra,cinelerra-additional"
+SEQ_XFCEBASE="min,xbase,xapbase,xfcebase"
 
 # Stripped-down Slackware with KDE4 as the Desktop Environment:
 # - each series will become a squashfs module:
@@ -1614,4 +1613,3 @@ ls -l ${OUTPUT}/slackware${DIRSUFFIX}-live${ISOTAG}-${SL_VERSION}.iso*
 
 # Clean out the mounts etc:
 cleanup
-
