@@ -95,6 +95,7 @@ CXXFLAGS="$SLKCFLAGS -D__STDC_CONSTANT_MACROS" \
   --libdir=/opt/cinelerra-akirad/usr/lib${LIBDIRSUFFIX} \
   --with-plugindir=/opt/cinelerra-akirad/usr/lib${LIBDIRSUFFIX}/cinelerra \
   --with-buildinfo=git/recompile \
+  --enable-dffmpeg \
   --disable-static \
   --mandir=/usr/man \
   --with-pic \
