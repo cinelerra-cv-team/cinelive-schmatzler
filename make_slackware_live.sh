@@ -272,7 +272,7 @@ function install_pkgs() {
         RRES=$?
         echo "-- Done rsync-ing from '${SL_REPO_URL}'."
       fi
-      if [ $RRES -ne 0 ]; then
+      if [ $RRES -ne 1 ]; then
         echo "** Slackware repository root '${SL_REPO}' does not exist or is empty! Exiting."
         exit 1
       fi
