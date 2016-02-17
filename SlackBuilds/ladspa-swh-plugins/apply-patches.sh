@@ -7,5 +7,6 @@ SB_PATCHDIR=${CWD}/patches
 zcat ${SB_PATCHDIR}/swh-plugins-0.4.15-pic.patch.gz | patch -p1 -E --backup --verbose
 zcat ${SB_PATCHDIR}/swh-plugins-0.4.15-riceitdown.patch.gz | patch -p1 -E --backup --verbose
 zcat ${SB_PATCHDIR}/swh-plugins-0.4.15-gettext.patch.gz | patch -p1 -E --backup --verbose
+patch -p1 < ${SB_PATCHDIR}/sifter-gcc5.patch
 
 set +e +o pipefail
