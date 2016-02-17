@@ -1,0 +1,25 @@
+From 3dee1953082948f1468410d6921c7d878cda5fbf Mon Sep 17 00:00:00 2001
+From: Good Guy <good1.2guy@gmail.com>
+Date: Mon, 15 Feb 2016 11:57:53 -0700
+Subject: [PATCH] make viewer initially visible
+
+---
+ cinelerra-5.0/cinelerra/mainsession.C | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cinelerra-5.0/cinelerra/mainsession.C b/cinelerra-5.0/cinelerra/mainsession.C
+index f64eca5..287c973 100644
+--- a/cinelerra-5.0/cinelerra/mainsession.C
++++ b/cinelerra-5.0/cinelerra/mainsession.C
+@@ -413,7 +413,7 @@ int MainSession::load_defaults(BC_Hash *defaults)
+ 	batchrender_w = defaults->get("BATCHRENDER_W", batchrender_w);
+ 	batchrender_h = defaults->get("BATCHRENDER_H", batchrender_h);
+ 
+-	show_vwindow = defaults->get("SHOW_VWINDOW", 0);
++	show_vwindow = defaults->get("SHOW_VWINDOW", 1);
+ 	show_awindow = defaults->get("SHOW_AWINDOW", 1);
+ 	show_cwindow = defaults->get("SHOW_CWINDOW", 1);
+ 	show_lwindow = defaults->get("SHOW_LWINDOW", 0);
+-- 
+2.1.4
+

@@ -82,6 +82,9 @@ patch -Np1 -i "$CWD/patches/fix-fontsize.patch"
 # fix building with gcc 5.2 (thanks Opendigitalradio!)
 patch -Np1 -i "$CWD/patches/cinelerra-putbits-gcc52.patch"
 
+# make viewer initially visible (thanks, goodguy)
+patch -Np2 -i "$CWD/patches/initial-viewer.patch"
+
 # disable building the flac xmms plugin
 sed -i '219 s/configure/configure --disable-xmms-plugin/' configure
 
