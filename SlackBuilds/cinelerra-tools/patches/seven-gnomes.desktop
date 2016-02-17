@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Seven Gnomes
+Comment=Cinelerra conversion tools
+Categories=Application;AudioVideo;Multimedia;VideoEditing;
+Encoding=UTF-8
+Exec=/usr/bin/seven-gnomes
+Terminal=false
+Type=Application

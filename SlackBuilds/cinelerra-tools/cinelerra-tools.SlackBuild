@@ -3,7 +3,7 @@
 # Slackware build script for cinelerra-tools
  
 PRGNAM=cinelerra-tools
-VERSION=${VERSION:-1.1}
+VERSION=${VERSION:-1.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_cin}
  
@@ -23,7 +23,7 @@ OUTPUT=${OUTPUT:-/tmp}
 set -eu
  
 rm -rf $PKG
-mkdir -p $PKG $OUTPUT
+mkdir -p $TMP $PKG $OUTPUT
 cd $PKG
 tar xvfz $CWD/$PRGNAM-$VERSION.tar.gz
 chown -R root:root .
@@ -36,6 +36,18 @@ find . \
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 rm -rf $PKG/usr/share/doc
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+# install Seven Gnomes
+cd $TMP
+rm -rf seven-gnomes-0.6
+tar xvzf $CWD/seven-gnomes-0.6.tar.gz
+cd seven-gnomes-0.6
+./configure --prefix=/usr
+make
+make install DESTDIR=$PKG
+
+# Menu entry for Seven Gnomes
+cp $CWD/patches/seven-gnomes.desktop $PKG/usr/share/applications/seven-gnomes.desktop
  
 mkdir -p $PKG/install
  
@@ -48,6 +60,7 @@ cinelerra-tools: This includes various helper programs for use with
 cinelerra-tools: Cinelerra.
 cinelerra-tools:
 cinelerra-tools: cinelerra-whiper: Can remove Cinelerra configuration files
+cinelerra-tools: seven-gnomes: Conversion tools for Cinelerra
 cinelerra-tools:
 cinelerra-tools:
 EOF
