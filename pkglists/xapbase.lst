@@ -17,7 +17,7 @@ gv
 hexchat
 imagemagick
 libsigc++
-mozilla-firefox
+#mozilla-firefox
 #mozilla-thunderbird
 network-manager-applet
 pangomm

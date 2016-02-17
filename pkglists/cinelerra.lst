@@ -5,6 +5,10 @@
 #ffmpeg from AlienBOB - http://www.slackware.com/~alien/slackbuilds/ffmpeg/
 ffmpeg
 
+#Chromium from AlienBOB - http://www.slackware.com/~alien/slackbuilds/chromium
+chromium
+chromium-pepperflash-plugin
+
 #cinelerra-cv - TODO: add repo on website
 cinelerra
 faac
