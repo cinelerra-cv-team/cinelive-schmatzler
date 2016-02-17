@@ -85,10 +85,6 @@ chmod -R 777 $PKG/opt/cinelerra-goodguy/usr/lib/
 mkdir -p "$PKG/opt/cinelerra-goodguy/usr/bin/"
 ln -s /opt/cinelerra-goodguy/usr/lib/cinelerra/cinelerra "$PKG/opt/cinelerra-goodguy/usr/bin/cinelerra"
 
-# Link LADSPA system plugins into 5.x directory (broken)
-rmdir $PKG/opt/cinelerra-goodguy/usr/lib/cinelerra/plugins/ladspa
-ln -s /usr/lib64/ladspa "$PKG/opt/cinelerra-goodguy/usr/lib/cinelerra/plugins/"
-
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
