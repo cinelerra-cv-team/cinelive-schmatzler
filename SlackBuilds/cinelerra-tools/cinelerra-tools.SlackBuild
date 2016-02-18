@@ -3,7 +3,7 @@
 # Slackware build script for cinelerra-tools
  
 PRGNAM=cinelerra-tools
-VERSION=${VERSION:-1.2}
+VERSION=${VERSION:-1.3}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_cin}
  
@@ -59,7 +59,7 @@ cinelerra-tools:
 cinelerra-tools: This includes various helper programs for use with
 cinelerra-tools: Cinelerra.
 cinelerra-tools:
-cinelerra-tools: cinelerra-whiper: Can remove Cinelerra configuration files
+cinelerra-tools: cinelerra-wiper: Can remove Cinelerra configuration files
 cinelerra-tools: seven-gnomes: Conversion tools for Cinelerra
 cinelerra-tools:
 cinelerra-tools:
