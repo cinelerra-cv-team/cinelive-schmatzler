@@ -79,7 +79,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-git clone git://git.cinelerra-cv.org/CinelerraCV.git $PRGNAM-$VERSION
+git clone --depth 1 git://git.cinelerra-cv.org/CinelerraCV.git $PRGNAM-$VERSION
 cd $PRGNAM-$VERSION
 chown -R root:root .
 find -L . \

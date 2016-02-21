@@ -963,13 +963,15 @@ ALLOW32BIT=off
 USEBL=1
 WGETOPTS="--timeout=20 --tries=2"
 GREYLIST=on
-PKGS_PRIORITY=( restricted alienbob ktown_testing )
-REPOPLUS=( slackpkgplus restricted alienbob ktown_testing )
+#PKGS_PRIORITY=( restricted alienbob ktown_testing )
+#REPOPLUS=( slackpkgplus restricted alienbob ktown_testing )
+REPOPLUS=( slackpkgplus cinelerracv )
 MIRRORPLUS['slackpkgplus']=http://slakfinder.org/slackpkg+/
-MIRRORPLUS['restricted']=http://taper.alienbase.nl/mirrors/people/alien/restricted_sbrepos/${SL_VERSION}/${SL_ARCH}/
-MIRRORPLUS['alienbob']=http://taper.alienbase.nl/mirrors/people/alien/sbrepos/${SL_VERSION}/${SL_ARCH}/
-MIRRORPLUS['ktown_testing']=http://taper.alienbase.nl/mirrors/alien-kde/${SL_VERSION}/testing/${SL_ARCH}/
-MIRRORPLUS['mate_testing']=http://slackware.uk/msb/testing/1.12/${SL_ARCH}/
+#MIRRORPLUS['restricted']=http://taper.alienbase.nl/mirrors/people/alien/restricted_sbrepos/${SL_VERSION}/${SL_ARCH}/
+#MIRRORPLUS['alienbob']=http://taper.alienbase.nl/mirrors/people/alien/sbrepos/${SL_VERSION}/${SL_ARCH}/
+#MIRRORPLUS['ktown_testing']=http://taper.alienbase.nl/mirrors/alien-kde/${SL_VERSION}/testing/${SL_ARCH}/
+#MIRRORPLUS['mate_testing']=http://slackware.uk/msb/testing/1.12/${SL_ARCH}/
+MIRRORPLUS['cinelerracv']=http://cinelerra-cv.org/repo/
 
 EOPL
 fi
