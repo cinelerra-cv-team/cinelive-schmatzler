@@ -66,7 +66,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-git clone -b merge-4 git://git.cinelerra-cv.org/j6t/cinelerra.git $PRGNAM-$VERSION
+git clone --depth 1 -b merge-4 git://git.cinelerra-cv.org/j6t/cinelerra.git $PRGNAM-$VERSION
 cd $PRGNAM-$VERSION
 chown -R root:root .
 find -L . \
