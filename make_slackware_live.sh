@@ -1123,6 +1123,12 @@ Command=/bin/bash -l
 Name=Shell
 Parent=FALLBACK/
 EOT
+mkdir -p ${LIVE_ROOTDIR}/etc/skel/.config
+cat <<EOT >> ${LIVE_ROOTDIR}/etc/skel/.config/konsolerc
+[Desktop Entry]
+DefaultProfile=Shell.profile
+
+EOT
 
 if [ "$LIVEDE" = "PLASMA5" ]; then
 
