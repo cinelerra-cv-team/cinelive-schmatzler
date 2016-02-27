@@ -1,3 +1,4 @@
 #These are the additional packages that are included in Slackware, but not in the default tiny config
 libraw1394
 qt
+libid3tag

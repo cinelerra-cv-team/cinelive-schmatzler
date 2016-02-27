@@ -57,6 +57,12 @@ virtualbox-kernel-addons
 yad
 ffmultiplex
 
+#Audacity
+audacity
+soundtouch
+twolame
+wxGTK3
+
 #we need a userfriendly editor
 gtksourceview
 pygtksourceview
