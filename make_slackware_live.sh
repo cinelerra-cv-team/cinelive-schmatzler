@@ -1433,6 +1433,14 @@ else
     ln -sf \${LIBEGL} /usr/lib${DIRSUFFIX}/libEGL.so 2>/dev/null
   fi
 fi
+
+# Make sure the cinelive wallpaper is set as background before we start
+# XFCE is setting the wallpaper based on the monitor output which is unreliable
+rm /usr/share/backgrounds/xfce/xfce-blue.jpg
+rm /usr/share/backgrounds/xfce/xfce-teal.jpg
+ln -s /usr/share/cinelive/cinelive-wallpaper.jpg /usr/share/backgrounds/xfce/xfce-blue.jpg
+ln -s /usr/share/cinelive/cinelive-wallpaper.jpg /usr/share/backgrounds/xfce/xfce-teal.jpg
+
 EOT
 
 # Clean out the unneeded stuff:
