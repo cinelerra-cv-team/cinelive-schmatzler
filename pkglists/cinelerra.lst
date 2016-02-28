@@ -55,6 +55,7 @@ ladspa-fil-plugins
 ladspa-mcp-plugins
 ladspa-rev-plugins
 ladspa-tap-plugins
+ladspa-vco-plugins
 
 #This enables dynamic resolution and clipboard functionality in VirtualBox
 virtualbox-addons
