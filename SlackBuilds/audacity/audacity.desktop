@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=bash -c 'pkill xfsettingsd; GTK2_RC_FILES=/usr/share/themes/Adwaita/gtk-2.0/gtkrc audacity; xfsettingsd'
+Exec=audacity
 Icon=audacity
 Name=Audacity
 Name[bn]=অডাসিটি
