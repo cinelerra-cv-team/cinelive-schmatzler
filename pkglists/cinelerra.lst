@@ -71,6 +71,9 @@ soundtouch
 twolame
 wxGTK3
 
+#GTK theme engine
+murrine
+
 #we need a userfriendly editor
 gtksourceview
 pygtksourceview

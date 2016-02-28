@@ -1,0 +1,14 @@
+# dark xfwm4 theme shaped after screenshots of fmrbpensadors Glow-theme (who based his window decorations on Katiola-slim by bis0n).
+
+button_offset=1
+button_spacing=1
+full_width_title=true
+title_vertical_offset_active=1
+title_vertical_offset_inactive=1
+title_alignment=left
+button_layout=0|HMC
+active_text_color=#EBEBEB
+inactive_text_color=#949494
+shadow_delta_width=0
+shadow_delta_x=0
+shadow_delta_y=0
