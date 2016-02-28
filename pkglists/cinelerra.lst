@@ -50,6 +50,7 @@ ladspa_sdk
 ladspa-swh-plugins
 ladspa-amb-plugins
 ladspa-caps-plugins
+ladspa-cmt-plugins
 
 #This enables dynamic resolution and clipboard functionality in VirtualBox
 virtualbox-addons
