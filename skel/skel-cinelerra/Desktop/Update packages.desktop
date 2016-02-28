@@ -1,0 +1,20 @@
+[Desktop Entry]
+Comment[de]=
+Comment=
+Exec=xterm -fn 7x13 -fa "Liberation Mono:size=10:antialias=false" -e 'su -c "slackpkg update && slackpkg upgrade-all"'
+GenericName[de]=
+GenericName=
+Icon=view-refresh
+MimeType=
+Name[de]=Update packages
+Name=Update packages
+Path=
+StartupNotify=false
+Terminal=false
+TerminalOptions=
+Type=Application
+Version=1.0
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
