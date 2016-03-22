@@ -664,7 +664,7 @@ else
 fi
 
 # Package root directory, arch dependent:
-SL_PKGROOT=${SL_REPO}/${DISTRO}${DIRSUFFIX}-${SL_VERSION}/${DISTRO}${DIRSUFFIX}
+SL_PKGROOT=${SL_REPO}/${DISTRO}${DIRSUFFIX}-${SL_VERSION}/slackware${DIRSUFFIX}
 DEF_SL_PKGROOT=${SL_PKGROOT}
 
 # Patches root directory, arch dependent:
