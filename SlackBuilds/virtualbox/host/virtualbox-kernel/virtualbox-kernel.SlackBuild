@@ -27,7 +27,7 @@
 PRGNAM=virtualbox-kernel
 VERSION=${VERSION:-5.0.14}
 BUILD=${BUILD:-1}
-TAG=${TAG:-_SBo}
+TAG=${TAG:-_cin}
 
 KERNEL=${KERNEL:-$(uname -r)}
 KERNELPATH=${KERNELPATH:-/lib/modules/$KERNEL/build}
