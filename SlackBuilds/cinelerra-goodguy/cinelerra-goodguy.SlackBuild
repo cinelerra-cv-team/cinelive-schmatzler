@@ -61,7 +61,7 @@ mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
 git clone --depth 1 git://git.cinelerra-cv.org/goodguy/cinelerra.git $PRGNAM-$VERSION
-cd $PRGNAM-$VERSION/cinelerra-5.0
+cd $PRGNAM-$VERSION/cinelerra-5.1
 chown -R root:root .
 
 # Don't build the included ladspa-swh (it fails) and disable VAAPI in ffmpeg
