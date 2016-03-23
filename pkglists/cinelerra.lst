@@ -81,3 +81,7 @@ gedit
 #user wishlist
 ffdiaporama
 #vapoursynth -> http://www.vapoursynth.com/ + QTGMC
+
+#archive program
+xarchiver
+thunar-archive-plugin
