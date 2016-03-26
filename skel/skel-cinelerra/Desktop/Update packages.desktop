@@ -1,15 +1,19 @@
 [Desktop Entry]
-Comment[de]=
-Comment=
-Exec=xterm -fn 7x13 -fa "Liberation Mono:size=10:antialias=false" -e 'su -c "slackpkg update && slackpkg upgrade-all"'
-GenericName[de]=
-GenericName=
-Icon=view-refresh
+Categories=System;
+Comment[de]=Get new packages for CINELIVE
+Comment=Get new packages for CINELIVE
+Encoding=UTF-8
+Exec=/usr/bin/cinelive-updater
+GenericName[de]=Get new packages
+GenericName=Get new packages
+GenericName[en_US]=CINELIVE Updater
+Icon=/usr/share/cinelive/cinelive-updater.png
 MimeType=
-Name[de]=Update packages
-Name=Update packages
+MultipleArgs=false
+Name[de]=CINELIVE Updater
+Name=CINELIVE Updater
 Path=
-StartupNotify=false
+StartupNotify=true
 Terminal=false
 TerminalOptions=
 Type=Application
