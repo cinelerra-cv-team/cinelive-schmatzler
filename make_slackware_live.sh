@@ -1502,9 +1502,6 @@ rm /usr/share/backgrounds/xfce/xfce-teal.jpg
 ln -s /usr/share/cinelive/cinelive-wallpaper.jpg /usr/share/backgrounds/xfce/xfce-blue.jpg
 ln -s /usr/share/cinelive/cinelive-wallpaper.jpg /usr/share/backgrounds/xfce/xfce-teal.jpg
 
-# Use bashrun2 to run gparted if requested. Otherwise, nothing would happen and confuse users.
-sed -i '222 s/Exec=\/usr\/sbin\/gparted_polkit %f/Exec=bashrun2 su gparted/' /usr/share/applications/gparted.desktop
-
 EOT
 
 # Clean out the unneeded stuff:
