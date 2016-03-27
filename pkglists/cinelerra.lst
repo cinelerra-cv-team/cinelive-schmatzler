@@ -85,3 +85,6 @@ ffdiaporama
 #archive program
 xarchiver
 thunar-archive-plugin
+
+#su wrapper for gparted
+bashrun2
