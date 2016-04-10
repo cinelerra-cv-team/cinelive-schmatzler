@@ -3,7 +3,7 @@
 # Slackware build script for cinelerra-tools
  
 PRGNAM=cinelerra-tools
-VERSION=${VERSION:-1.6}
+VERSION=${VERSION:-1.7}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_cin}
  
@@ -61,7 +61,7 @@ cinelerra-tools: Cinelerra.
 cinelerra-tools:
 cinelerra-tools: cinelerra-wiper: Can remove Cinelerra configuration files
 cinelerra-tools: seven-gnomes: Conversion tools for Cinelerra
-cinelerra-tools:
+cinelerra-tools: cinelive-updater: GUI for slackpkg+
 cinelerra-tools:
 EOF
 ) > $PKG/install/slack-desc
