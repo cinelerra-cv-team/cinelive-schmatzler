@@ -3,7 +3,7 @@
 # Slackware build script for cinelerra-tools
  
 PRGNAM=cinelerra-tools
-VERSION=${VERSION:-1.7}
+VERSION=${VERSION:-1.8}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_cin}
  
