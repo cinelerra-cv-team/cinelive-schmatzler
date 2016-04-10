@@ -5,6 +5,5 @@ libid3tag
 xterm
 gparted
 gtkmm2
-kernel-huge
 #needed for gparted to get root rights
 polkit-gnome
