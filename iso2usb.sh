@@ -557,8 +557,8 @@ if [ $EFIBOOT -eq 1 ]; then
 fi
 
 # No longer needed:
-/sbin/umount ${USBMNT}
-/sbin/umount ${EFIMNT}
+#/sbin/umount ${USBMNT}
+#/sbin/umount ${EFIMNT}
 
 # Unmount/remove stuff:
 cleanup
