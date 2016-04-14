@@ -7,3 +7,4 @@ gparted
 gtkmm2
 #needed for gparted to get root rights
 polkit-gnome
+kernel-huge
