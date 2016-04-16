@@ -24,7 +24,7 @@
 
 PRGNAM=cinelerra-akirad
 VERSION="$( date +%Y%m%d )"
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_cin}
 
 if [ -z "$ARCH" ]; then
@@ -84,6 +84,9 @@ patch -Np1 -i "$CWD/patches/gcc5-inline.patch"
 sed -i '31,35d' $TMP/$PRGNAM-$VERSION/image/Makefile.am
 
 ./autogen.sh
+
+# Use ccache for faster rebuilding
+export CC="ccache gcc"
 
 LDFLAGS="-ldl" \
 CFLAGS="$SLKCFLAGS -D__STDC_CONSTANT_MACROS" \
