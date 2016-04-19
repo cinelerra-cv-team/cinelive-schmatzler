@@ -32,7 +32,6 @@ live_post_install () {
     /etc/inittab \
     /etc/localtime* \
     /etc/passwd \
-    /etc/profile.d/lang.sh \
     /etc/rc.d/rc.font \
     /etc/rc.d/rc.gpm \
     /etc/rc.d/rc.local \
@@ -46,6 +45,9 @@ live_post_install () {
   sed -i ${T_PX}/etc/rc.d/rc.4 -e 's,bin/xdm -nodaemon,& -config /etc/X11/xdm/liveslak-xdm/xdm-config,'
   # Remove the marker file from the filesystem root:
   rm -f ${T_PX}/@MARKER@
+  
+  # Copy the chosen locale to the HDD
+  cp /etc/profile.d/lang.sh ${T_PX}/etc/profile.d/lang.sh
 
   cat << EOF > $TMP/tempmsg
 
