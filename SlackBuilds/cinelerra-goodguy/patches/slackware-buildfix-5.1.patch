@@ -1,6 +1,6 @@
-diff -U 3 -H -d -r -N -- a/cinelerra-5.0/thirdparty/Makefile b/cinelerra-5.0/thirdparty/Makefile
---- a/cinelerra-5.0/thirdparty/Makefile	2016-02-14 17:13:13.000000000 +0100
-+++ b/cinelerra-5.0/thirdparty/Makefile	2016-02-14 19:24:59.446192772 +0100
+diff -U 3 -H -d -r -N -- a/cinelerra-5.1/thirdparty/Makefile b/cinelerra-5.1/thirdparty/Makefile
+--- a/cinelerra-5.1/thirdparty/Makefile	2016-04-19 07:46:12.586300494 +0200
++++ b/cinelerra-5.1/thirdparty/Makefile	2016-04-19 07:47:57.226304743 +0200
 @@ -102,6 +102,7 @@
  ffmpeg.cfg_params= \
  	--enable-pthreads --enable-gpl \
@@ -9,15 +9,15 @@ diff -U 3 -H -d -r -N -- a/cinelerra-5.0/thirdparty/Makefile b/cinelerra-5.0/thi
  	--enable-libfaac \
  	--enable-libfdk-aac \
  	--enable-libtwolame \
-@@ -158,7 +159,6 @@
+@@ -159,7 +160,6 @@
  mjpegtools.cflags="$(call inc_path,libjpeg) $(call ld_path,libjpeg,.libs)"
  mjpegtools.mak_params=; ln -s . $(call bld_path,mjpegtools,utils)/mjpegtools 
  mjpegtools.cfg_params= --enable-shared=no
--ladspa.mak_params=; make -C ladspa* install DESTDIR=$(call bld_path,ladspa)
+-ladspa.mak_params=; $(MAKE) -C ladspa* install DESTDIR=$(call bld_path,ladspa)
  libavc1394.cfg_vars=PKG_CONFIG_PATH=$(bld_path libraw1394)
  libavc1394.cflags="$(inc_path libraw1394)"
  libavc1394.ldflags="$(ld_path libraw1394,src/.libs)"
-@@ -219,7 +219,6 @@
+@@ -221,7 +221,6 @@
  $(call rules,$(call std-build,flac,libogg))
  $(call rules,$(call std-build,giflib))
  $(call rules,$(call std-build,ilmbase))
@@ -25,10 +25,10 @@ diff -U 3 -H -d -r -N -- a/cinelerra-5.0/thirdparty/Makefile b/cinelerra-5.0/thi
  $(call rules,$(call std-build,lame))
  $(call rules,$(call std-build,libavc1394))
  $(call rules,$(call std-build,libdv))
-diff -U 3 -H -d -r -N -- a/cinelerra-5.0/thirdparty/configure b/cinelerra-5.0/thirdparty/configure
---- a/cinelerra-5.0/thirdparty/configure	2016-02-14 17:13:13.000000000 +0100
-+++ b/cinelerra-5.0/thirdparty/configure	2016-02-14 19:24:03.190191488 +0100
-@@ -112,8 +112,6 @@
+diff -U 3 -H -d -r -N -- a/cinelerra-5.1/thirdparty/configure b/cinelerra-5.1/thirdparty/configure
+--- a/cinelerra-5.1/thirdparty/configure	2016-04-19 07:46:12.586300494 +0200
++++ b/cinelerra-5.1/thirdparty/configure	2016-04-19 07:48:31.422306131 +0200
+@@ -133,8 +133,6 @@
  	Half/.libs/libHalf.a \
  	Imath/.libs/libImath.a \
  	IlmThread/.libs/libIlmThread.a

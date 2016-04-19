@@ -24,7 +24,7 @@
 
 PRGNAM=cinelerra-goodguy
 VERSION="$( date +%Y%m%d )"
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_cin}
 
 if [ -z "$ARCH" ]; then
@@ -65,7 +65,7 @@ cd $PRGNAM-$VERSION/cinelerra-5.1
 chown -R root:root .
 
 # Don't build the included ladspa-swh (it fails) and disable VAAPI in ffmpeg
-patch -Np2 -i "$CWD/patches/slackware-buildfix-5.0.patch"
+patch -Np2 -i "$CWD/patches/slackware-buildfix-5.1.patch"
 
 # build the program
 ./configure shared
