@@ -71,8 +71,8 @@ else
  --msgbox "There don't seem to be any partitions on this machine of type \
 Linux.  You'll need to make at least one of these to install Linux.  \
 To do this, you'll need to leave 'setup', and make the partitions using \
-'cfdisk' (MBR partitions) or 'cgdisk' (GPT partitions).  For more \
-information, read the 'setup' help file from the next menu." 10 64
+'cfdisk' (MBR partitions), 'cgdisk' (GPT partitions) or 'gparted' (both). \
+For more information, read the 'setup' help file from the next menu." 10 64
 fi
 if [ -d /sys/firmware/efi ]; then
   if ! probe -l 2> /dev/null | grep "EFI System Partition" 1> /dev/null 2> /dev/null ; then
@@ -80,7 +80,7 @@ if [ -d /sys/firmware/efi ]; then
  --msgbox "This machine appears to be using EFI/UEFI, but no EFI System \
 Partition was found.  You'll need to make an EFI System Partition in order \
 to boot from the hard drive.  To do this, leave 'setup', and \
-use 'cgdisk' to make a 100MB partition of type EF00.  For more information, \
+use 'cgdisk' or 'gparted' to make a 100MB partition of type EF00.  For more information, \
 read the 'setup' help file from the next menu." 10 64
   fi
 fi
@@ -110,16 +110,16 @@ mkdir /var/log/mount 2> /dev/null
 
 while [ 0 ]; do
 
- dialog --title "@CDISTRO@ Linux Setup (version @SL_VERSION@)" \
+ dialog --title "@CDISTRO@ Setup (based on Slackware @SL_VERSION@)" \
 --menu \
-"Welcome to @CDISTRO@ Linux Setup (Live Edition).\n\
+"Welcome to the @CDISTRO@ Setup.\n\
 Select an option below using the UP/DOWN keys and SPACE or ENTER.\n\
 Alternate keys may also be used: '+', '-', and TAB." 18 72 9 \
 "HELP" "Read the @CDISTRO@ Setup HELP file" \
 "KEYMAP" "Remap your keyboard if you're not using a US one" \
 "ADDSWAP" "Set up your swap partition(s)" \
 "TARGET" "Set up your target partitions" \
-"INSTALL" "Install @CDISTRO@ Live to disk" \
+"INSTALL" "Install @CDISTRO@ to disk" \
 "CONFIGURE" "Reconfigure your Linux system" \
 "EXIT" "Exit @CDISTRO@ Linux Setup" 2> $TMP/hdset
  if [ ! $? = 0 ]; then
@@ -186,7 +186,7 @@ Press ENTER to return to the main menu." 16 68
   # --------------------------------------------- #
 
   # Buy us some time while we are calculating disk usage:
-  dialog --title "WELCOME TO @UDISTRO@ LIVE (@LIVEDE@)" --infobox \
+  dialog --title "WELCOME TO @UDISTRO@" --infobox \
    "\nCalculating disk usage, please be patient ..." 5 65
 
   ACT_MODS=$(ls -rt --indicator-style=none /mnt/live/modules/ |wc -l)
@@ -197,7 +197,7 @@ Press ENTER to return to the main menu." 16 68
 
   # Warn when it looks we have insufficient room:
   if [ $PARTFREE -lt $(($DU_LIVE/1024)) ]; then
-+    dialog --title "WELCOME TO @UDISTRO@ LIVE (@LIVEDE@)" --yesno \
++    dialog --title "WELCOME TO @UDISTRO@" --yesno \
    "\nAvailable space: $PARTFREE MB\nRequired space: $(($DU_LIVE/1024))\nIt looks like your hard drive partition is too small.\nDo you want to continue?" 10 65
     retval=$?
     if [ $retval = 1 ]; then
@@ -205,7 +205,7 @@ Press ENTER to return to the main menu." 16 68
       exit 1
     fi
   else
-    dialog --title "WELCOME TO @UDISTRO@ LIVE (@LIVEDE@)" --msgbox \
+    dialog --title "WELCOME TO @UDISTRO@" --msgbox \
    "\nAvailable space: $PARTFREE MB\nRequired space: $(($DU_LIVE/1024)) MB\nIt looks like you're good to go!" 10 65
   fi
 
@@ -214,8 +214,8 @@ Press ENTER to return to the main menu." 16 68
     rsync -Hav --progress --no-inc-recursive /mnt/@LIVEMAIN@fs/ $T_PX/ \
       | awk '{ if (index($0, "to-chk=") > 0) { split($0, pieces, "to-chk="); split(pieces[2], term, ")"); split(term[1], division, "/"); print (1-(division[1]/division[2]))*100 };  fflush(); }' \
       | sed --unbuffered 's/^\([0-9]*\).*/\1/'
-  ) | dialog --title "INSTALLING @UDISTRO@ LIVE (@LIVEDE@) TO DISK" --gauge \
-       "\nProcessing ${TOT_MODS} @CDISTRO@ Live modules ($(( $DU_LIVE/1024 )) MB)" 8 65
+  ) | dialog --title "INSTALLING @UDISTRO@ TO DISK" --gauge \
+       "\nProcessing ${TOT_MODS} @CDISTRO@ modules ($(( $DU_LIVE/1024 )) MB)" 8 65
 
   #
   # Live OS Post Install routine. If you want, you can override this routine
@@ -226,7 +226,7 @@ Press ENTER to return to the main menu." 16 68
   live_post_install () {
     # Re-use some of the custom configuration from 0099-@DISTRO@_zzzconf-*.sxz
     # (some of these may not be present but the command will not fail):
-    dialog --title "POST-INSTALL @UDISTRO@ LIVE (@LIVEDE@) DATA" --infobox \
+    dialog --title "POST-INSTALL @UDISTRO@ DATA" --infobox \
      "\nCopying Live modifications to hard disk ..." 5 65
     # Do not overwrite a custom keymap:
     if [ ! -f $T_PX/etc/rc.d/rc.keymap ]; then

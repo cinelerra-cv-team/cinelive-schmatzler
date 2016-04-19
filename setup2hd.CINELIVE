@@ -15,7 +15,7 @@
 live_post_install () {
   # Re-use some of the custom configuration from 0099-@DISTRO@_zzzconf-*.sxz
   # (some of these may not be present but the command will not fail):
-  dialog --title "POST-INSTALL @UDISTRO@ LIVE (@LIVEDE@) DATA" --infobox \
+  dialog --title "POST-INSTALL @UDISTRO@ DATA" --infobox \
    "\nCopying Live modifications to hard disk ..." 5 65
   # Do not overwrite a custom keymap:
   if [ ! -f $T_PX/etc/rc.d/rc.keymap ]; then
@@ -35,6 +35,7 @@ live_post_install () {
     /etc/profile.d/lang.sh \
     /etc/rc.d/rc.font \
     /etc/rc.d/rc.gpm \
+    /etc/rc.d/rc.local \
     /etc/shadow \
     /etc/skel \
     /etc/slackpkg \
@@ -48,7 +49,7 @@ live_post_install () {
 
   cat << EOF > $TMP/tempmsg
 
- @CDISTRO@ Live Edition (@LIVEDE@) has been installed to your hard drive!
+ @CDISTRO@ has been installed to your hard drive!
  We installed the ${ACT_MODS} active modules (out of ${TOT_MODS} available).
  After rebooting, your installed computer will look exactly like the Live OS.
 
