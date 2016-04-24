@@ -1821,7 +1821,7 @@ else
   UEFI_OPTS=""
 fi
 
-mkisofs -o ${OUTPUT}/cinelive-xfce.iso \
+mkisofs -o ${OUTPUT}/${DISTRO}${DIRSUFFIX}-live${ISOTAG}-${SL_VERSION}.iso \
   -R -J \
   -hide-rr-moved \
   -v -d -N \
@@ -1847,7 +1847,7 @@ cd - 1>/dev/null
 if [ "$SL_ARCH" = "x86_64" -o "$EFI32" = "YES" ]; then
   # Make this a hybrid ISO with UEFI boot support on x86_64.
   # On 32bit, the variable EFI32 must be explicitly enabled.
-  SIZEISO=$(stat --printf %s ${OUTPUT}/cinelive-xfce.iso)
+  SIZEISO=$(stat --printf %s ${OUTPUT}/${DISTRO}${DIRSUFFIX}-live${ISOTAG}-${SL_VERSION}.iso)
   # We want no more than 63 sectors, no more than 255 heads, according to
   # recommendations from Thomas Schmitt, xoriso developer.
   if [ $SIZEISO -gt 1073741824 ]; then
@@ -1863,15 +1863,15 @@ if [ "$SL_ARCH" = "x86_64" -o "$EFI32" = "YES" ]; then
     SECTORS=32
     HEADS=64
   fi
-  isohybrid -s $SECTORS -h $HEADS -u ${OUTPUT}/cinelive-xfce.iso
+  isohybrid -s $SECTORS -h $HEADS -u ${OUTPUT}/${DISTRO}${DIRSUFFIX}-live${ISOTAG}-${SL_VERSION}.iso
 fi # End UEFI hybrid ISO.
 
 cd ${OUTPUT}
-  md5sum cinelive-xfce.iso \
-    > cinelive-xfce.iso.md5
+  md5sum ${DISTRO}${DIRSUFFIX}-live${ISOTAG}-${SL_VERSION}.iso \
+    > ${DISTRO}${DIRSUFFIX}-live${ISOTAG}-${SL_VERSION}.iso.md5
 cd - 1>/dev/null
 echo "-- Live ISO image created:"
-ls -l ${OUTPUT}/cinelive-xfce.iso*
+ls -l ${OUTPUT}/${DISTRO}${DIRSUFFIX}-live${ISOTAG}-${SL_VERSION}.iso*
 
 # Clean out the mounts etc:
 cleanup
