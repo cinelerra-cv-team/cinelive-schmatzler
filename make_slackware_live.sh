@@ -1044,8 +1044,8 @@ chmod 440 ${LIVE_ROOTDIR}/etc/sudoers
 
 # Enable a Slackware mirror for slackpkg:
 cat <<EOT >> ${LIVE_ROOTDIR}/etc/slackpkg/mirrors
-http://mirrors.slackware.com/slackware/slackware${DIRSUFFIX}-${SL_VERSION}/
-#http://ftp.osuosl.org/.2/slackware/slackware${DIRSUFFIX}-${SL_VERSION}/
+#http://mirrors.slackware.com/slackware/slackware${DIRSUFFIX}-${SL_VERSION}/
+http://ftp.osuosl.org/.2/slackware/slackware${DIRSUFFIX}-${SL_VERSION}/
 EOT
 
 ## Blacklist the l10n packages;
