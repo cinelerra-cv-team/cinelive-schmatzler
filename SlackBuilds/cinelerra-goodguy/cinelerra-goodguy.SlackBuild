@@ -24,7 +24,7 @@
 
 PRGNAM=cinelerra-goodguy
 VERSION="$( date +%Y%m%d )"
-BUILD=${BUILD:-3}
+BUILD=${BUILD:-4}
 TAG=${TAG:-_cin}
 
 if [ -z "$ARCH" ]; then
@@ -67,11 +67,14 @@ chown -R root:root .
 # Don't build the included ladspa-swh
 sed -i '12 s/HAVE_LADSPA := y/HAVE_LADSPA := n/' global_config
 
+# Use ccache to speed up the build of the main program
+sed -i '42 s/CC = g++/CC = ccache g++/' global_config
+sed -i '43 s/GCC = gcc/GCC = ccache gcc/' global_config
+
 # build the program
 ./configure shared
 
 make
-
 make install
 
 # install puts it in bin/
