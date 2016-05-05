@@ -1,12 +1,19 @@
-ladspa-caps-plugins|-----handy-ruler------------------------------------------------------|
-ladspa-caps-plugins: ladspa-caps-plugins (The C* Audio Plugin Suite)
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+    |-----handy-ruler------------------------------------------------------|
+ladspa-caps-plugins: ladspa-caps-plugins (audio plugin suite for LADSPA)
 ladspa-caps-plugins:
-ladspa-caps-plugins: caps, the C* Audio Plugin Suite, is a collection of refined LADSPA
-ladspa-caps-plugins: units including instrument amplifier emulation, stomp-box classics,
-ladspa-caps-plugins: versatile 'virtual analog' oscillators, fractal oscillation, reverb,
-ladspa-caps-plugins: equalization and others.
+ladspa-caps-plugins: CAPS, the C* Audio Plugin Suite, is a collection of refined LADSPA
+ladspa-caps-plugins: audio plugins capable of (and mainly intended for) realtime
+ladspa-caps-plugins: operation. The suite includes DSP units emulating instrument
+ladspa-caps-plugins: amplifiers, stomp-box classics, versatile 'virtual analogue'
+ladspa-caps-plugins: oscillators, fractal oscillation, reverb, equalization and more.
 ladspa-caps-plugins:
-ladspa-caps-plugins: http://quitte.de/dsp/caps.html
 ladspa-caps-plugins:
 ladspa-caps-plugins:
-ladspa-caps-plugins: Packager: _PACKAGER on _BUILD_DATE
+ladspa-caps-plugins:
