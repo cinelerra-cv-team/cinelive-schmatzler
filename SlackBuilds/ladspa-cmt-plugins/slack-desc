@@ -1,12 +1,19 @@
-ladspa-cmt-plugins|-----handy-ruler------------------------------------------------------|
-ladspa-cmt-plugins: ladspa-cmt-plugins (A collection of LADSPA plugins)
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+   |-----handy-ruler------------------------------------------------------|
+ladspa-cmt-plugins: ladspa-cmt-plugins (Computer Music Toolkit for LADSPA)
 ladspa-cmt-plugins:
-ladspa-cmt-plugins: The Computer Music Toolkit (CMT) is a collection of LADSPA plugins for
-ladspa-cmt-plugins: use with software synthesis and recording packages on Linux. See the
-ladspa-cmt-plugins: license before use.
-ladspa-cmt-plugins:
-ladspa-cmt-plugins: http://www.ladspa.org/
+ladspa-cmt-plugins: The Computer Music Toolkit (CMT) is a collection of LADSPA plugins
+ladspa-cmt-plugins: for use with software synthesis and recording packages on Linux.
 ladspa-cmt-plugins:
 ladspa-cmt-plugins:
-ladspa-cmt-plugins: Packager: _PACKAGER on _BUILD_DATE
+ladspa-cmt-plugins:
+ladspa-cmt-plugins:
+ladspa-cmt-plugins:
+ladspa-cmt-plugins:
 ladspa-cmt-plugins:
