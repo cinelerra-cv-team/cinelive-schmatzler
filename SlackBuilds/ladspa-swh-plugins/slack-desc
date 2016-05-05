@@ -1,12 +1,19 @@
-ladspa-swh-plugins|-----handy-ruler------------------------------------------------------|
-ladspa-swh-plugins: ladspa-swh-plugins (A set of audio plugins for LADSPA)
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+     |-----handy-ruler------------------------------------------------------|
+ladspa-swh-plugins: ladspa-swh-plugins (GPL'd audio plugins for LADSPA)
 ladspa-swh-plugins:
-ladspa-swh-plugins: A set of audio plugins for LADSPA.
-ladspa-swh-plugins:
-ladspa-swh-plugins: http://plugin.org.uk/
+ladspa-swh-plugins: GPL'd (free software) audio plugins for LADSPA.
 ladspa-swh-plugins:
 ladspa-swh-plugins:
-ladspa-swh-plugins: Packager: _PACKAGER on _BUILD_DATE
+ladspa-swh-plugins:
+ladspa-swh-plugins:
+ladspa-swh-plugins:
 ladspa-swh-plugins:
 ladspa-swh-plugins:
 ladspa-swh-plugins:
