@@ -2,7 +2,7 @@
 Name=Cinelerra-5.1 (goodguy)
 Comment=Video Editor
 Categories=Application;AudioVideo;Multimedia;VideoEditing;
-Exec=/opt/cinelerra-goodguy/usr/bin/cinelerra
+Exec=/opt/cinelerra-goodguy/bin/cin
 Terminal=false
 Type=Application
-Icon=cinelerra-cv.xpm
+Icon=/opt/cinelerra-goodguy/share/pixmaps/cin.xpm

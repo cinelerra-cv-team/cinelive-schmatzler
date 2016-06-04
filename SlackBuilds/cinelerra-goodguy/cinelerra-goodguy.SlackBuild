@@ -24,7 +24,7 @@
 
 PRGNAM=cinelerra-goodguy
 VERSION="$( date +%Y%m%d )"
-BUILD=${BUILD:-4}
+BUILD=${BUILD:-5}
 TAG=${TAG:-_cin}
 
 if [ -z "$ARCH" ]; then
@@ -64,29 +64,35 @@ git clone --depth 1 git://git.cinelerra-cv.org/goodguy/cinelerra.git $PRGNAM-$VE
 cd $PRGNAM-$VERSION/cinelerra-5.1
 chown -R root:root .
 
-# Don't build the included ladspa-swh
-sed -i '12 s/HAVE_LADSPA := y/HAVE_LADSPA := n/' global_config
+# --disable-ladspa has no effect, it's still being built and fails at it.
+# Let's remove it completely from the build system.
+patch -p2 < $CWD/patches/51-ladspa.patch
 
-# Use ccache to speed up the build of the main program
-sed -i '42 s/CC = g++/CC = ccache g++/' global_config
-sed -i '43 s/GCC = gcc/GCC = ccache gcc/' global_config
+# configure the build
+./autogen.sh
 
-# build the program
-./configure shared
+# Use ccache for faster rebuilding
+# TODO: Let ffmpeg compile with ccache
+export CC="ccache gcc"
+
+CFLAGS="$SLKCFLAGS -D__STDC_CONSTANT_MACROS" \
+CXXFLAGS="$SLKCFLAGS -D__STDC_CONSTANT_MACROS" \
+LDFLAGS="-ldl -L/usr/lib${LIBDIRSUFFIX}" \
+./configure \
+    --prefix=/opt/cinelerra-goodguy \
+    --sysconfdir=/etc \
+    --localstatedir=/var \
+    --libdir=/opt/cinelerra-goodguy/usr/lib \
+    --disable-static \
+    --disable-ladspa \
+    --with-jobs=4 \
+    --build=$ARCH-slackware-linux
 
 make
-make install
-
-# install puts it in bin/
-rm -rf "$PKG/opt/cinelerra-goodguy/usr/lib/cinelerra/"
-mkdir -p "$PKG/opt/cinelerra-goodguy/usr/lib/cinelerra/"
-mv bin/* "$PKG/opt/cinelerra-goodguy/usr/lib/cinelerra/"
+make install DESTDIR=$PKG
 
 # 5.x needs write permissions on its own directory
 chmod -R 777 $PKG/opt/cinelerra-goodguy/usr/lib/
-
-mkdir -p "$PKG/opt/cinelerra-goodguy/usr/bin/"
-ln -s /opt/cinelerra-goodguy/usr/lib/cinelerra/cinelerra "$PKG/opt/cinelerra-goodguy/usr/bin/cinelerra"
 
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
@@ -98,7 +104,7 @@ mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
-#Copy starter into correct directory
+# Use our own starter to have the correct name in the application menu
 mkdir -p $PKG/usr/share/applications
 cp $CWD/patches/cinelerra-goodguy.desktop $PKG/usr/share/applications/cinelerra-goodguy.desktop
 
