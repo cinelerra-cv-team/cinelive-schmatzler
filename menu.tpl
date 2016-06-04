@@ -4,7 +4,7 @@ ui vesamenu.c32
 default live
 font @CONSFONT@
 menu background swlogov.png
-menu title @CDISTRO@ Beta5
+menu title @CDISTRO@ Beta6
 menu clear
 f2 f2.txt #00000000
 f3 f3.txt #00000000
@@ -40,7 +40,7 @@ menu color timeout      1;37;40    #ffb72f9f #00000000 none
 menu color help         37;40      #ff354172 #00000000 none
 
 label live
-  menu label Start @LIVEDE@ Beta5
+  menu label Start @LIVEDE@ Beta6
   menu default
   kernel /boot/generic
   append initrd=/boot/initrd.img load_ramdisk=1 prompt_ramdisk=0 rw printk.time=0 kbd=@KBD@
