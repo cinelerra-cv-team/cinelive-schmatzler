@@ -24,7 +24,7 @@
 
 PRGNAM=cinelerra-goodguy
 VERSION="$( date +%Y%m%d )"
-BUILD=${BUILD:-5}
+BUILD=${BUILD:-6}
 TAG=${TAG:-_cin}
 
 if [ -z "$ARCH" ]; then
@@ -64,10 +64,6 @@ git clone --depth 1 git://git.cinelerra-cv.org/goodguy/cinelerra.git $PRGNAM-$VE
 cd $PRGNAM-$VERSION/cinelerra-5.1
 chown -R root:root .
 
-# --disable-ladspa has no effect, it's still being built and fails at it.
-# Let's remove it completely from the build system.
-patch -p2 < $CWD/patches/51-ladspa.patch
-
 # configure the build
 ./autogen.sh
 
@@ -84,7 +80,7 @@ LDFLAGS="-ldl -L/usr/lib${LIBDIRSUFFIX}" \
     --localstatedir=/var \
     --libdir=/opt/cinelerra-goodguy/usr/lib \
     --disable-static \
-    --disable-ladspa \
+    --without-ladspa-build \
     --with-jobs=4 \
     --build=$ARCH-slackware-linux
 
