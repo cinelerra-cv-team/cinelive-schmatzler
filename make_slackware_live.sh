@@ -1097,8 +1097,8 @@ MIRRORPLUS['cinelerracv']=http://cinelerra-cv.org/repo/
 EOPL
 fi
 
-/usr/sbin/slackpkg -batch=on update gpg
-/usr/sbin/slackpkg -batch=on update
+ARCH=${SL_ARCH} /usr/sbin/slackpkg -batch=on update gpg
+ARCH=${SL_ARCH} /usr/sbin/slackpkg -batch=on update
 
 EOSL
 
