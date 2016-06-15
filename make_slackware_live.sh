@@ -1882,7 +1882,7 @@ cd ${LIVE_STAGING}
 if [ -f boot/syslinux/efiboot.img -a "$USEXORR" = "NO" ]; then
   UEFI_OPTS="-eltorito-alt-boot -no-emul-boot -eltorito-platform 0xEF -eltorito-boot boot/syslinux/efiboot.img"
 elif [ -f boot/syslinux/efiboot.img -a "$USEXORR" = "YES" ]; then
-  UEFI_OPTS="-eltorito-alt-boot -e boot/syslinux/efiboot.img -isohybrid-gpt-basdat -no-emul-boot"
+  UEFI_OPTS="-eltorito-alt-boot -e boot/syslinux/efiboot.img -no-emul-boot"
 else
   UEFI_OPTS=""
 fi
@@ -1927,6 +1927,8 @@ else
     -c boot/syslinux/isolinux.boot \
     -boot-load-size ${BOOTLOADSIZE} -boot-info-table -no-emul-boot \
     ${UEFI_OPTS} \
+    -isohybrid-mbr /usr/share/syslinux/isohdpfx.bin \
+    -isohybrid-gpt-basdat \
     -preparer "$(echo $LIVEDE |sed 's/BASE//') Live built by ${BUILDER}" \
     -publisher "The Slackware Linux Project - http://www.slackware.com/" \
     -A "${DISTRO^}-${SL_VERSION} for ${SL_ARCH} ($(echo $LIVEDE |sed 's/BASE//') Live $VERSION)" \
