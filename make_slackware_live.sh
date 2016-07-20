@@ -1102,8 +1102,8 @@ ALLOW32BIT=off
 USEBL=1
 WGETOPTS="--timeout=20 --tries=2"
 GREYLIST=on
-#PKGS_PRIORITY=( restricted alienbob ktown_testing )
-#REPOPLUS=( slackpkgplus restricted alienbob ktown_testing )
+#PKGS_PRIORITY=( restricted alienbob ktown mate )
+#REPOPLUS=( slackpkgplus restricted alienbob ktown mate )
 REPOPLUS=( slackpkgplus cinelerracv )
 MIRRORPLUS['slackpkgplus']=http://slakfinder.org/slackpkg+/
 #MIRRORPLUS['restricted']=http://bear.alienbase.nl/mirrors/people/alien/restricted_sbrepos/${SL_VERSION}/${SL_ARCH}/
