@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Cinelerra Wiper
+GenericName=Preferences deletion
+Comment=Audio and Video Stream Multiplexer
+Exec=/usr/bin/cinelerra-wiper
+Icon=/usr/share/icons/Adwaita/256x256/actions/edit-delete.png
+Terminal=false
+MultipleArgs=false
+Type=Application
+Categories=Applications;VideoEditing;AudioVideo
+GenericName[en_US]=Cinelerra Wiper
+

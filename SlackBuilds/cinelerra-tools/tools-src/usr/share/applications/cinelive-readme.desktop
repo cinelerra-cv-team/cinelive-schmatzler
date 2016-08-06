@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=CINELIVE Readme
+GenericName=Read documentation
+Comment=CINELIVE documentation
+Exec=chromium /usr/share/cinelive/README.html
+Icon=/usr/share/icons/Adwaita/256x256/apps/accessories-text-editor.png
+Terminal=false
+MultipleArgs=false
+Type=Application
+Categories=System;
+GenericName[en_US]=CINELIVE Readme

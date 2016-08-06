@@ -1,0 +1,19 @@
+#!/bin/bash
+yad --center --width 500 --window-icon=/usr/share/cinelive/cinelive-updater.png --title="Update CINELIVE" --text="\nWith this tool you can update the packages included in CINELIVE.\n
+When CINELIVE has been started from a DVD, all updated packages will be lost after a reboot.\n
+Depending on the age of the LiveDVD you may also need to update the base system packages. You can do so in step 3 (optional).\n" --button="1. Update package lists" --button="2. Update Cinelerra" --button="3. Update all" --button="Abort" --image=/usr/share/cinelive/cinelive-updater.png
+#Save return value
+ret=$?
+if [ $ret = 0 ]
+then
+ xterm -fn 7x13 -fa "Liberation Mono:size=10:antialias=false" -T "Updating package lists" -e 'su -c "slackpkg update" && echo "Package list successfully updated (or already up-to-date). Press RETURN";read'
+ /usr/bin/cinelive-updater
+elif [ $ret = 1 ]
+then
+ xterm -fn 7x13 -fa "Liberation Mono:size=10:antialias=false" -T "Installing updates" -e 'su -c "slackpkg upgrade cinelerracv" && echo "All operations finished. Press RETURN";read'
+elif [ $ret = 2 ]
+then
+ xterm -fn 7x13 -fa "Liberation Mono:size=10:antialias=false" -T "Installing updates" -e 'su -c "slackpkg upgrade-all" && echo "All operations finished. Press RETURN";read'
+else
+ exit 1
+fi

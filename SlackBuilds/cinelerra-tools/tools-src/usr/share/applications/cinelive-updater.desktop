@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=CINELIVE Updater
+GenericName=Get new packages
+Comment=Get new packages for CINELIVE
+Exec=/usr/bin/cinelive-updater
+Icon=/usr/share/cinelive/cinelive-updater.png
+Terminal=false
+MultipleArgs=false
+Type=Application
+Categories=System;
+GenericName[en_US]=CINELIVE Updater
+
