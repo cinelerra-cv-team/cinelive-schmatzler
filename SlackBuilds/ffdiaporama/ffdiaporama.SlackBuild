@@ -23,7 +23,7 @@
 
 PRGNAM=ffdiaporama
 VERSION=${VERSION:-2.2dev}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_cin}
 
 if [ -z "$ARCH" ]; then
