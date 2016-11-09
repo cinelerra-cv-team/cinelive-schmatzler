@@ -23,8 +23,8 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=cinelerra-hv
-VERSION=${VERSION:-4.6.1}
-BUILD=${BUILD:-3}
+VERSION=${VERSION:-6}
+BUILD=${BUILD:-4}
 TAG=${TAG:-_cin}
 
 if [ -z "$ARCH" ]; then
@@ -67,11 +67,11 @@ chown -R root:root .
 # Use ncurses instead of termcap
 sed -i 's/ltermcap/lncurses/g' ./thirdparty/speech_tools/{configure{,.in},config/config}
 
-# fixes to make it compile
-patch -Np1 -i "$CWD/patches/quicktime.patch"
-patch -Np1 -i "$CWD/patches/texi2html.patch"
-patch -Np1 -i "$CWD/patches/libavcodec.patch"
-patch -Np1 -i "$CWD/patches/cinelerra_4.6.patch"
+# disable building the flac xmms plugin
+sed -i '219 s/configure/configure --disable-xmms-plugin/' configure
+
+# disable building ffmpeg with VAAPI
+sed -i '83 s/configure/configure --disable-vaapi/' quicktime/configure
   
 # fix problems with Cinelerra_plugins in read-only directories
 patch -Np1 -i "$CWD/patches/plugin_dir.patch"
@@ -85,8 +85,11 @@ patch -Np1 -i "$CWD/patches/cinelerra-putbits-gcc52.patch"
 # make viewer initially visible (thanks, goodguy)
 patch -Np2 -i "$CWD/patches/initial-viewer.patch"
 
-# disable building the flac xmms plugin
-sed -i '219 s/configure/configure --disable-xmms-plugin/' configure
+# make HV6 compile (thanks, goodguy)
+patch -Np1 -i "$CWD/patches/hv6.patch1"
+
+# fix x264 build error
+patch -Np1 -i "$CWD/patches/lavf-Use-the-prefixed-name-for-pixel-format-enum.patch"
 
 # build the program
 ./configure

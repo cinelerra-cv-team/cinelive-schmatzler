@@ -1,0 +1,15 @@
+X-Git-Url: https://git.videolan.org/?p=x264.git;a=blobdiff_plain;f=x264.c;h=6609fefdd8e5621ca0fca3501d0309b475bb29f8;hp=4dd2a2622182d899987425ecf90908b2fcfe0a95;hb=a0cd7d38acb6c31973228ab207e18344920e0aa3;hpb=63555e696a997ff795798d3357d770f8ab373cd9
+
+diff --git a/x264.c b/x264.c
+index 4dd2a26..6609fef 100644
+--- a/quicktime/thirdparty/x264.082315/x264.c
++++ b/quicktime/thirdparty/x264.082315/x264.c
+@@ -442,7 +442,7 @@ static void print_csp_names( int longhelp )
+     printf( "                              - valid csps for `lavf' demuxer:\n" );
+     printf( INDENT );
+     size_t line_len = strlen( INDENT );
+-    for( enum PixelFormat i = AV_PIX_FMT_NONE+1; i < AV_PIX_FMT_NB; i++ )
++    for( enum AVPixelFormat i = AV_PIX_FMT_NONE+1; i < AV_PIX_FMT_NB; i++ )
+     {
+         const char *pfname = av_get_pix_fmt_name( i );
+         if( pfname )

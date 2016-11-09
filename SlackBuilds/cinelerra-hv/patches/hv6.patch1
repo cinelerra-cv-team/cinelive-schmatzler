@@ -1,0 +1,44 @@
+diff -urN cinelerra-6.old/build/Makefile.toolame cinelerra-6.new/build/Makefile.toolame
+--- cinelerra-6.old/build/Makefile.toolame	2015-08-12 11:47:55.000000000 -0600
++++ cinelerra-6.new/build/Makefile.toolame	2016-11-09 10:46:35.923853145 -0700
+@@ -28,7 +28,8 @@
+ OUTPUT = $(DIR)/$(OBJDIR)/toolame.a
+ 
+ 
+-CFLAGS += -I$(DIR) -DNEWENCODE -DNEWATAN -DNDEBUG -DINLINE=inline  
++#CFLAGS += -I$(DIR) -DNEWENCODE -DNEWATAN -DNDEBUG -DINLINE=inline  
++CFLAGS += -I$(DIR) -DNEWENCODE -DNEWATAN -DNDEBUG -DINLINE=
+ 
+ 
+ $(shell sh -c 'mkdir -p $(DIR)/$(OBJDIR)' )
+diff -urN cinelerra-6.old/cinelerra/Makefile cinelerra-6.new/cinelerra/Makefile
+--- cinelerra-6.old/cinelerra/Makefile	2016-10-13 22:56:33.000000000 -0600
++++ cinelerra-6.new/cinelerra/Makefile	2016-11-09 10:46:18.060794354 -0700
+@@ -407,6 +407,7 @@
+ 	-lz \
+ 	-ldl \
+ 	-lbz2 \
++	-llzma \
+ 	-lrt
+ 
+ #	-lfontconfig \
+@@ -420,6 +421,7 @@
+ 
+ CFLAGS += \
+ 	-c \
++	-include string.h \
+ 	-I../guicast \
+ 	-I../quicktime \
+ 	-I$(JPEG_DIR) \
+diff -urN cinelerra-6.old/quicktime/Makefile cinelerra-6.new/quicktime/Makefile
+--- cinelerra-6.old/quicktime/Makefile	2016-10-13 22:56:33.000000000 -0600
++++ cinelerra-6.new/quicktime/Makefile	2016-11-09 10:50:39.786004003 -0700
+@@ -282,7 +282,7 @@
+ 	cd ../avformat && \
+ 	ar x ../../../$(FFMPEG_DIR)/libavformat/libavformat.a &&  \
+ 	cd ../avutil && \
+-	ar x ../../../$(FFMPEG_DIR)/libavutil/libavutil.a \
++	ar x ../../../$(FFMPEG_DIR)/libavutil/libavutil.a && \
+ 	cd ../avutil && \
+ 	ar x ../../../$(FFMPEG_DIR)/libswresample/libswresample.a
+ 
