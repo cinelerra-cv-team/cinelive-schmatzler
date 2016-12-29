@@ -24,7 +24,7 @@
 
 PRGNAM=virtualbox-addons
 SRCNAM=VirtualBox
-VERSION=${VERSION:-5.0.14}
+VERSION=${VERSION:-5.0.30}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_cin}
 
@@ -48,7 +48,7 @@ if ! grep ^vboxadd: /etc/passwd 2>&1 > /dev/null; then
 fi
 
 # kmk doesn't support MAKEFLAGS, so we use JOBS here
-JOBS=${JOBS:-3}
+JOBS=${JOBS:-4}
 
 # set xorg-server version
 XSERVER=$(X -version 2>&1 | grep Server | cut -d " " -f 4 | sed "s/\.//" | cut -d "." -f 1)
@@ -169,4 +169,4 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
