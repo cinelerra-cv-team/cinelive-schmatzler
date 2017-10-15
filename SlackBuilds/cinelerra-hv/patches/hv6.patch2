@@ -11,25 +11,6 @@ diff -urN cinelerra-6.old/build/Makefile.toolame cinelerra-6.new/build/Makefile.
  
  
  $(shell sh -c 'mkdir -p $(DIR)/$(OBJDIR)' )
-diff -urN cinelerra-6.old/cinelerra/Makefile cinelerra-6.new/cinelerra/Makefile
---- cinelerra-6.old/cinelerra/Makefile	2016-10-13 22:56:33.000000000 -0600
-+++ cinelerra-6.new/cinelerra/Makefile	2016-11-09 10:46:18.060794354 -0700
-@@ -407,6 +407,7 @@
- 	-lz \
- 	-ldl \
- 	-lbz2 \
-+	-llzma \
- 	-lrt
- 
- #	-lfontconfig \
-@@ -420,6 +421,7 @@
- 
- CFLAGS += \
- 	-c \
-+	-include string.h \
- 	-I../guicast \
- 	-I../quicktime \
- 	-I$(JPEG_DIR) \
 diff -urN cinelerra-6.old/quicktime/Makefile cinelerra-6.new/quicktime/Makefile
 --- cinelerra-6.old/quicktime/Makefile	2016-10-13 22:56:33.000000000 -0600
 +++ cinelerra-6.new/quicktime/Makefile	2016-11-09 10:50:39.786004003 -0700

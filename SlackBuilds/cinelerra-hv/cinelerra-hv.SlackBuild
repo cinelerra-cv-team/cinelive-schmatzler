@@ -23,8 +23,8 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=cinelerra-hv
-VERSION=${VERSION:-6}
-BUILD=${BUILD:-4}
+VERSION=${VERSION:-7}
+BUILD=${BUILD:-6}
 TAG=${TAG:-_cin}
 
 if [ -z "$ARCH" ]; then
@@ -67,11 +67,11 @@ chown -R root:root .
 # Use ncurses instead of termcap
 sed -i 's/ltermcap/lncurses/g' ./thirdparty/speech_tools/{configure{,.in},config/config}
 
-# disable building the flac xmms plugin
+# disable building the broken flac xmms plugin
 sed -i '219 s/configure/configure --disable-xmms-plugin/' configure
 
-# disable building ffmpeg with VAAPI
-sed -i '83 s/configure/configure --disable-vaapi/' quicktime/configure
+# circumvent build errors with VAAPI and VDPAU
+sed -i '83 s/--disable-ffplay/--disable-ffplay --disable-vaapi --disable-vdpau/' quicktime/configure
   
 # fix problems with Cinelerra_plugins in read-only directories
 patch -Np1 -i "$CWD/patches/plugin_dir.patch"
@@ -85,8 +85,12 @@ patch -Np1 -i "$CWD/patches/cinelerra-putbits-gcc52.patch"
 # make viewer initially visible (thanks, goodguy)
 patch -Np2 -i "$CWD/patches/initial-viewer.patch"
 
-# make HV6 compile (thanks, goodguy)
-patch -Np1 -i "$CWD/patches/hv6.patch1"
+# Various HV7 build fixes (thanks, goodguy)
+patch -Np1 -i "$CWD/patches/hv6.patch2"
+
+# Reintroduce an old friend from HV4 to fix errors like:
+# strlen was not declared in this scope
+patch -Np1 -i "$CWD/patches/cinelerra_4.6.patch"
 
 # fix x264 build error
 patch -Np1 -i "$CWD/patches/lavf-Use-the-prefixed-name-for-pixel-format-enum.patch"
@@ -94,16 +98,8 @@ patch -Np1 -i "$CWD/patches/lavf-Use-the-prefixed-name-for-pixel-format-enum.pat
 # build the program
 ./configure
 
-# fix faac linking
-sed -i 's/LDFLAGS = -Wl,-O1,--sort-common,--as-needed,-z,relro/LDFLAGS = -Wl,-O1,-lm,--sort-common,--as-needed,-z,relro/' \
-		 ./quicktime/thirdparty/faac-1.24/frontend/Makefile
-
-make -j4
-
-# makes repackaging work
-#[ ! -e "bin/cinelerra" ] && \
-#	make -C cinelerra && \
-#	make -C plugins
+# Parallel build is broken on HV7. Enjoy the wait.
+make -j1
 
 make install
 
