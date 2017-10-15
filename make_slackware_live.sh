@@ -1615,15 +1615,16 @@ chmod 600 ${LIVE_ROOTDIR}/var/lib/kdm/kdmsts
 # Set default GTK+ theme for Qt applications:
 mkdir -p  ${LIVE_ROOTDIR}/etc/skel/
 cat << EOF > ${LIVE_ROOTDIR}/etc/skel/.gtkrc-2.0
-include "/usr/share/themes/Adwaita/gtk-2.0/gtkrc"
-include "/usr/share/gtk-2.0/gtkrc"
-include "/etc/gtk-2.0/gtkrc"
-gtk-theme-name="Adwaita"
+#include "/usr/share/themes/Adwaita/gtk-2.0/gtkrc"
+#include "/usr/share/gtk-2.0/gtkrc"
+#include "/etc/gtk-2.0/gtkrc"
+include "/home/cinelive/.themes/Samopal_Xfce/gtk-2.0/gtkrc"
+gtk-theme-name="Samopal_Xfce"
 EOF
 mkdir -p ${LIVE_ROOTDIR}/etc/skel/.config/gtk-3.0
 cat << EOF > ${LIVE_ROOTDIR}/etc/skel/.config/gtk-3.0/settings.ini
 [Settings]
-gtk-theme-name = Adwaita
+gtk-theme-name = Samopal_Xfce
 EOF
 
 # Be gentle to low-performance USB media and limit disk I/O:
