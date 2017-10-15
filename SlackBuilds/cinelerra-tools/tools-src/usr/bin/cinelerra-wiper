@@ -6,18 +6,19 @@ action=$(yad --center --width 300 --entry --title "Delete Cinelerra settings" \
     --text "Some of the Cinelerra versions share their configuration directories. This may lead to abnormal behaviour of the programs, when used at the same time. \n
 Choose which settings you want to delete <span color='#FF0000'>(this can not be reverted!)</span>:" \
     --entry-text \
-    "None (Do nothing)" "Cinelerra-CV - merge-4 - HV (~/.bcast)" "Cinelerra 5.0 (~/.bcast5)" "CVA (~/.cinelerracv)" "CVE (~/.cinelerra)" "All of them!")
+    "None (Do nothing)" "Cinelerra-CV (~/.cinelerra-cv)" "Cinelerra-GG (~/.bcast5)" "Cinelerra HV (~/.bcast)" "CVA (~/.cinelerracv)" "CVE (~/.cinelerra)" "All of them!")
 ret=$?
 
 [[ $ret -eq 1 ]] && exit 0
 
 case $action in
     None*) cmd="yad --center --width 300 --window-icon=gtk-stop --title \"Aborted\" --text \"No variant selected. Aborting.\" --button=\"gtk-close:1\"" ;;
-    Cinelerra-CV*) cmd="rm -rf ~/.bcast & yad --center --window-icon=gtk-stop --width 300 --title \"Success\" --text \"~/.bcast removed.\" --button=\"gtk-close:1\"" ;;
-    Cinelerra\ 5.0*) cmd="rm -rf ~/.bcast5 & yad --center --window-icon=gtk-stop --width 300 --title \"Success\" --text \"~/.bcast5 removed.\" --button=\"gtk-close:1\"" ;;
+    Cinelerra-CV*) cmd="rm -rf ~/.cinelerra-cv & yad --center --window-icon=gtk-stop --width 300 --title \"Success\" --text \"~/.cinelerra-cv removed.\" --button=\"gtk-close:1\"" ;;
+    Cinelerra-GG*) cmd="rm -rf ~/.bcast5 & yad --center --window-icon=gtk-stop --width 300 --title \"Success\" --text \"~/.bcast5 removed.\" --button=\"gtk-close:1\"" ;;
+    Cinelerra\ HV) cmd="rm -rf ~/.bcast & yad --center --window-icon=gtk-stop --width 300 --title \"Success\" --text \"~/.bcast removed.\" --button=\"gtk-close:1\"" ;;
     CVA*) cmd="rm -rf ~/.cinelerracv & yad --center --window-icon=gtk-stop --width 300 --title \"Success\" --text \"~/.cinelerracv removed.\" --button=\"gtk-close:1\"" ;;
     CVE*) cmd="rm -rf ~/.cinelerra & yad --center --window-icon=gtk-stop --width 300 --title \"Success\" --text \"~/.cinelerra removed.\" --button=\"gtk-close:1\"" ;;
-    All*) cmd="rm -rf ~/.bcast & rm -rf ~/.bcast5 & rm -rf ~/.cinelerracv & rm -rf ~/.cinelerra & yad --center --window-icon=gtk-stop --width 300 --title \"Success\" --text \"All files removed.\" --button=\"gtk-close:1\"" ;;
+    All*) cmd="rm -rf ~/.bcast & rm -rf ~/.bcast5 & rm -rf ~/.cinelerracv & rm -rf ~/.cinelerra-cv & rm -rf ~/.cinelerra & yad --center --window-icon=gtk-stop --width 300 --title \"Success\" --text \"All files removed.\" --button=\"gtk-close:1\"" ;;
     *) exit 1 ;;    
 esac
 

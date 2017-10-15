@@ -3,8 +3,8 @@
 # Slackware build script for cinelerra-tools
  
 PRGNAM=cinelerra-tools
-VERSION=${VERSION:-1.10}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-1.20}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_cin}
  
 if [ -z "$ARCH" ]; then
