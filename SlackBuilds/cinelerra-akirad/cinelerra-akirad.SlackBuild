@@ -24,7 +24,7 @@
 
 PRGNAM=cinelerra-akirad
 VERSION="$( date +%Y%m%d )"
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_cin}
 
 if [ -z "$ARCH" ]; then
@@ -78,6 +78,9 @@ find -L . \
 # gcc5 build fixes from main CV branch
 patch -Np1 -i "$CWD/patches/gcc5-mmx.patch"
 patch -Np1 -i "$CWD/patches/gcc5-inline.patch"
+
+# Russian translation from igor_ubuntu
+patch -Np1 -i "$CWD/patches/Update-Russian-translation.patch"
 
 # make install is broken for packaging
 # delete all of the install commands and copy what's needed later
