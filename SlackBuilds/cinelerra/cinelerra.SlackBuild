@@ -24,7 +24,7 @@
 
 PRGNAM=cinelerra
 VERSION="$( date +%Y%m%d )"
-BUILD=${BUILD:-3}
+BUILD=${BUILD:-4}
 TAG=${TAG:-_cin}
 
 if [ -z "$ARCH" ]; then
